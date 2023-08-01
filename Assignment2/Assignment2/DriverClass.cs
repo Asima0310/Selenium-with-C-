@@ -15,6 +15,7 @@ namespace Assignment2
         {
             string chromeDriverPath = "C:\\Users\\asima.ali\\Downloads\\chromedriver_win32 (1)\\chromedriver.exe";
             driver = new ChromeDriver(chromeDriverPath);
+
         }
 
     }

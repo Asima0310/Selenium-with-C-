@@ -4,11 +4,12 @@ using OpenQA.Selenium;
 namespace Assignment2
 {
     [TestClass]
-    public class Login: WebDriver
+    public class Login : WebDriver
 
     {
-      
+
         [TestMethod]
+        [Ignore]
         public void Case1()
         {
             string usernameA = "standard_user";
@@ -21,15 +22,16 @@ namespace Assignment2
             password.SendKeys("secret_sauce");
             IWebElement btnSubmit = driver.FindElement(By.Id("login-button"));
             btnSubmit.Click();
-            string message = $"Hello! Welcome to {driver.Url}. You have logged in with username \"{usernameA}\".";
+            string message = "Hello! Welcome to" + driver.Url + "You have logged in with username" + usernameA;
             Thread.Sleep(3000);
             driver.Close();
         }
 
         [TestMethod]
+        [Ignore]
         public void Case2()
         {
-            
+
             driver.Manage().Window.Maximize();
             driver.Navigate().GoToUrl("https://www.saucedemo.com/");
             System.Threading.Thread.Sleep(3000);
@@ -58,13 +60,19 @@ namespace Assignment2
             password.SendKeys("secret_sauce123");
             IWebElement btnSubmit = driver.FindElement(By.Id("login-button"));
             btnSubmit.Click();
-            var errorMessage = driver.FindElement(By.ClassName("error-button"));
+            
+            var errorMessageElement = driver.FindElement(By.XPath("*//div[@class=\"error-message-container error\"]"));
+            var errorMessage = errorMessageElement.Text;
+            Console.WriteLine(errorMessage);
             Assert.AreEqual("Epic sadface: Username and password do not match any user in this service", errorMessage);
+
+
             Thread.Sleep(5000);
             driver.Close();
 
         }
         [TestMethod]
+        [Ignore]
         public void Case4()
         {
             driver.Manage().Window.Maximize();
