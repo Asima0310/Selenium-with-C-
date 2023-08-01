@@ -9,7 +9,7 @@ namespace Assignment2
     {
 
         [TestMethod]
-        [Ignore]
+    
         public void Case1()
         {
             string usernameA = "standard_user";
@@ -28,7 +28,7 @@ namespace Assignment2
         }
 
         [TestMethod]
-        [Ignore]
+       
         public void Case2()
         {
 
@@ -72,7 +72,7 @@ namespace Assignment2
 
         }
         [TestMethod]
-        [Ignore]
+
         public void Case4()
         {
             driver.Manage().Window.Maximize();
